@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style-type: none;
+}
+
+#navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem ;
+    border-bottom: 2px solid rgb(172, 172, 172);
+}
+
+#liste_nav{
+
+    display: flex;
+    padding-right: 3rem;
+    
+    
+}
+
+#nomPrenom{
+    padding-left: 3rem;
+}
+
+#liste_nav li{
+    padding-left: 1rem;
+}
+
+
+#main{
+
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.itemListeCarte{
+
+    border:1px solid black;
+    border-radius: 5px;
+
+
+}
+
+.imageCarte{
+    text-align: center;
+    padding: 5rem;
+    border-bottom:1px solid black;
+}
+
+.infoCarte{
+    padding-left: 2rem;
+}
+
+#cartes{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+
+footer{
+    display: flex;
+
+    border-top: 2px solid rgb(172, 172, 172) ;
+    justify-content: space-between;
+
+}
+
+#liens{
+    display: flex;
+    gap:20rem;
+    padding-right: 20rem;
+}
