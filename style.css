@@ -63,6 +63,7 @@ ul{
 #cartes{
     display: grid;
     grid-template-columns: auto auto auto;
+    grid-column: 3;
     gap: 10px;
 }
 
@@ -78,4 +79,93 @@ footer{
     display: flex;
     gap:20rem;
     padding-right: 20rem;
+}
+
+#boutonNav{
+    display: none;
+}
+
+#logo{
+    background-color: darkgrey;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+#slogan{
+
+    text-align: center;
+}
+
+@media screen and (width< 768px) {
+    #navbar{
+        flex-direction: column;
+    }
+    #liste_nav{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        
+    }
+    #boutonNav{
+        display: flex;
+    }
+    #liste_nav{
+        display: none;
+    }
+    #nomPrenom{
+        display: none;
+    }
+
+    #cartes {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    footer{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        text-align: center;
+        
+    }
+
+    #liens{
+        display: flex;
+        flex-direction: column;
+        gap:0;
+        padding-right: 0;
+    }
+}
+
+
+
+@media screen and (width< 1200px) and (width > 768px) {
+  
+
+    #cartes{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    footer{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        
+    }
+
+    #liens{
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        padding-right: 20rem;
+        flex-wrap: wrap;
+    }
+
+
 }

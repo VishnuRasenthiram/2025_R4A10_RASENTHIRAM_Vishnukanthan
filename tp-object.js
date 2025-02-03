@@ -44,28 +44,31 @@ module.exports = {
   // 6) Ajouter une propriété dynamique étant le résultat de la concaténation des chaines hello et world et dont la valeur est true
   // renvoyer l'objet modifié
   Q6() {
-    const cat = "HelloWorld"; // La clé attendue
+    // Implémentation ici
+    const cat = "HelloWorld"; 
     let valeur = true;
 
-    let obj = {}; // Création d'un objet vide
+    let obj = getObject();
 
     Object.defineProperty(obj, cat, { 
         value: valeur, 
-        writable: true, 
-        enumerable: true, 
-        configurable: true 
     });
 
-    return obj; // Renvoie l'objet modifié
+    return obj; 
 },
 
   // 7) Supprimer la propriété isBestObject et renvoyer l'objet
   Q7() {
     // Implémentation ici
+    let obj = getObject
+
+    delete obj.isBestObject
+    return obj
   },
 
   // 8) Vérifier que la propriété description existe dans l'objet, renvoyer un booléen
   Q8() {
     // Implémentation ici
+    return "description" in getObject()
   },
 };
