@@ -1,0 +1,40 @@
+button{
+  background-color: #0454c4;
+  color: white;
+  border: none;
+  padding: 12px 12px;
+  font-size: 14px;
+  border-radius: 8px;
+  display: none;
+}
+
+nav{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  white-space: nowrap;
+}
+
+
+@media screen and (width <= 600px) {
+  nav{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+  }
+  a {
+    display: none;
+  }
+  button{
+    display: block;
+  }
+}

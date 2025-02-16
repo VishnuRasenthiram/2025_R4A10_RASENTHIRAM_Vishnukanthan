@@ -1,0 +1,39 @@
+footer{
+
+  background: linear-gradient(to top, rgba(103, 195, 243, 1), rgba(90, 152, 242, 1));
+  padding: 10px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10%;
+  padding-top: 2%;
+}
+
+.left {
+  width: 30%;
+
+}
+
+.right {
+  width: 60%;
+}
+
+
+
+
+@media screen and (width<= 600px) {
+  footer {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .left {
+    width: 100%;
+
+  }
+
+  .right {
+    width: 100%;
+  }
+
+}

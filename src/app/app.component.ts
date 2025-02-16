@@ -1,13 +1,20 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+
+import { HeaderComponent } from './header/header.component';
+import { VirtualHealthcareComponent } from './virtual-healthcare/virtual-healthcare.component';
+import { ServicesComponent } from './services/services.component';
+import { FooterComponent } from './footer/footer.component';
+import { ReviewComponent } from './review/review.component';
+
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [HeaderComponent, VirtualHealthcareComponent, ServicesComponent,ReviewComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.sass'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'tp0';
+  title = 'Tp2';
 }

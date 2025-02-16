@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footer-header {
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.image {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.footer-title {
+  font-size: 1.5em;
+  color: white;
+  text-align: left;
+}
+
+.footer-text {
+  color: white;
+  margin-top: 10px;
+  max-width: 600px;
+  text-align: left;
+}

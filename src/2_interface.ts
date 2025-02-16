@@ -1,46 +1,48 @@
 /*
 Partie 2 - Interfaces et Classes
 Puisque nous travaillons sur notre génération d'API, nous allons faire un peu d'Orienté Objet
-et nous allons nous intéresser à la création d'un Repository. 
+et nous allons nous intéresser à la création d'un Repository.
 
 Lorsqu'on fait appel à de la donnée qui provient d'une BDD, un pattern fréquent est d'utiliser un repository
 dont le but est d'aller chercher les données dans la BDD et de les mettre à disposition de l'API
-avant qu'elles ne soient retournées au frontend 
+avant qu'elles ne soient retournées au frontend
 
-Nous allons utiliser une approche généraliste, et nous ferons la supposition que nos repositories 
+Nous allons utiliser une approche généraliste, et nous ferons la supposition que nos repositories
 fonctionnent avec des fonctions communes, ce qui nous fera une très bonne occasion de pratiquer le I de SOLID.
 */
 
-/* 
+/*
 1. Etablir une interface générique
 
 L'idée d'une interface générique n'est pas propre à TypeScript, vous retrouvez cette notion en Java (génériques),
-en C++ (templates) et dans d'autres langages. 
+en C++ (templates) et dans d'autres langages.
 
 La doc TypeScript en parle mais c'est un peu lourd: https://www.typescriptlang.org/docs/handbook/2/generics.html
-Le premier exemple permet d'illustrer sans trop rentrer dans la complexité: https://www.geeksforgeeks.org/typescript-generic-functions/ 
+Le premier exemple permet d'illustrer sans trop rentrer dans la complexité: https://www.geeksforgeeks.org/typescript-generic-functions/
 
-L'idée est de dire qu'on va passer un type à une classe/interface/fonction, et que le résultat variera en fonction du type. 
+L'idée est de dire qu'on va passer un type à une classe/interface/fonction, et que le résultat variera en fonction du type.
 
-Vous en avez vu un exemple dans la partie 1 du TP sur les types avec la promesse, qui s'écrit Promise<le_type_final>. 
+Vous en avez vu un exemple dans la partie 1 du TP sur les types avec la promesse, qui s'écrit Promise<le_type_final>.
 
-Par convention, quand on parle de générique, on a souvent tendance à utiliser la lettre T (ou le mot Type) pour définir le type utilisé. 
-Ainsi, dans le cadre d'une Promesse, on écrirait Promise<T> 
+Par convention, quand on parle de générique, on a souvent tendance à utiliser la lettre T (ou le mot Type) pour définir le type utilisé.
+Ainsi, dans le cadre d'une Promesse, on écrirait Promise<T>
 
 Ce côté générique peut être donné à un type ou une interface.
-Pour notre repository, la première interface va concerner le fait de trouver plusieurs ressources. 
+Pour notre repository, la première interface va concerner le fait de trouver plusieurs ressources.
 
-Créez l'interface FindMany, rendez-la générique. 
-Sa seule propriété est une fonction findMany, qui ne prend pas d'argument et renvoie une promesse générique, 
+Créez l'interface FindMany, rendez-la générique.
+Sa seule propriété est une fonction findMany, qui ne prend pas d'argument et renvoie une promesse générique,
 attention on renvoie un tableau de T
 */
 
 // Implémentez ici
-
+interface FindMany<T> {
+  findMany(): Promise<T[]>;
+}
 /*
-2. Faire le reste du CRUD 
+2. Faire le reste du CRUD
 
-On parle de CRUD (Create / Read / Update / Delete) car ce sont généralement les fonctions de base associées 
+On parle de CRUD (Create / Read / Update / Delete) car ce sont généralement les fonctions de base associées
 à une ressource.
 
 Quand on pense à une ressource quelconque, il y a souvent 5 actions qui reviennent:
@@ -68,7 +70,21 @@ Dans la première question, vous avez fait FindMany. Sur le même modèle, faite
 */
 
 // Implémentez ici
+interface FindOne<T> {
+  findOne(id: number): Promise<T | null>;
+}
 
+interface Create<T> {
+  create(data: T): Promise<T>;
+}
+
+interface Update<T> {
+  update(id: number, data: T): Promise<T>;
+}
+
+interface Delete {
+  delete(id: number): Promise<void>;
+}
 /*
 3. Créer les types Student et Course
 
@@ -86,7 +102,19 @@ Un cours est matérialisé par:
 */
 
 // Implémentez ici
+type Student = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  group: string;
+};
 
+type Cours = {
+  id: number;
+  name: string;
+  teacher: string;
+  active: boolean;
+};
 /*
 4. Créer les interfaces StudentRepository et CourseRepository
 
@@ -97,21 +125,63 @@ Ces deux interfaces vont étendre les interfaces CRUD que vous avez créées et 
 */
 
 // Implémentez ici
+interface StudentRepository extends FindMany<Student>, FindOne<Student>, Create<Student>, Update<Student>, Delete {}
+
+interface CourseRepository extends FindMany<Cours>, FindOne<Cours>, Create<Cours>, Update<Cours> {}
 
 /*
 5. Implémentation des classes
 
-Créez les deux classes associées, SQLStudentRepository et SQLCourseRepository et indiquez qu'elles implémentent l'interface associée 
+Créez les deux classes associées, SQLStudentRepository et SQLCourseRepository et indiquez qu'elles implémentent l'interface associée
 
-Comme nous avons déclaré que les méthodes renverraient des Promesses, nous avons indiqué que nous souhaitons travailler 
+Comme nous avons déclaré que les méthodes renverraient des Promesses, nous avons indiqué que nous souhaitons travailler
 avec de l'asynchrone.
 
-Chaque fonction devra être précédée du mot clé async : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function 
+Chaque fonction devra être précédée du mot clé async : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
 
 Pour les findMany, retournez simplement un tableau vide, pour les autres, vous pouvez retourner null pour chaque méthode
 */
 
 // Implémentez ici
+class SQLStudentRepository implements StudentRepository {
+  async findMany(): Promise<Student[]> {
+    return [];
+  }
+
+  async findOne(id: number): Promise<Student | null> {
+    return null;
+  }
+
+  async create(data: Student): Promise<Student> {
+    return data;
+  }
+
+  async update(id: number, data: Student): Promise<Student> {
+    return { ...data, id };
+  }
+
+  async delete(id: number): Promise<void> {
+    return;
+  }
+}
+
+class SQLCourseRepository implements CourseRepository {
+  async findMany(): Promise<Cours[]> {
+    return [];
+  }
+
+  async findOne(id: number): Promise<Cours | null> {
+    return null;
+  }
+
+  async create(data: Cours): Promise<Cours> {
+    return data;
+  }
+
+  async update(id: number, data: Cours): Promise<Cours> {
+    return { ...data, id };
+  }
+}
 
 /**
  * Ca y est, vous êtes des génies (en devenir) du design logiciel en POO (le web aujourd'hui c'est beaucoup de software design, va falloir se préparer)

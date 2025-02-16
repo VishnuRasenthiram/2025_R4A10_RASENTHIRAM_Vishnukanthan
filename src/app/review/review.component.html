@@ -1,0 +1,8 @@
+<div class="container">
+  <h1 class="title">What our customer are saying</h1>
+  <hr class="divider" />
+
+  <app-client [reviewId]="reviewId"></app-client>
+</div>
+
+<app-button (reviewEmitter)="onReviewChange($event)"></app-button>
