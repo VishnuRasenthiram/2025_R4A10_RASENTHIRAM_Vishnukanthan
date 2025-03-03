@@ -1,0 +1,7 @@
+<section class="card-detail">
+  <a class="back-button" routerLink=""> ← </a>
+  <h2>{{voyage ? voyage.destination : ""}}</h2>
+  <p class="description">{{voyage ? voyage.description : ""}}</p>
+  <p class="price">{{voyage ? voyage.price : ""}}€</p>
+  <button class="btn-delete" (click)="deleteVoyage()">Supprimer</button>
+</section>

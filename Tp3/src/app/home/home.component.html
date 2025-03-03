@@ -1,0 +1,15 @@
+<app-travels [voyages]="voyages" (deleteVoyageEvent)="deleteVoyage($event)"></app-travels>
+<div class="page-controls">
+<button (click)="prevPage()" [disabled]="currentPage === 1">Précédent</button>
+
+  @for (number of Array(totalPages).keys(); track number) {
+    <button (click)="goToPage(number + 1)" [class.active]="number + 1 === currentPage">
+      {{ number + 1 }}
+    </button>
+  }
+
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Suivant</button>
+</div>
+
+
+

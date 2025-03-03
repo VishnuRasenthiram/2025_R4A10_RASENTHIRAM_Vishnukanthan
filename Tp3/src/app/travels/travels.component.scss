@@ -1,0 +1,18 @@
+.card-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+}
+
+
+.card-list li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+

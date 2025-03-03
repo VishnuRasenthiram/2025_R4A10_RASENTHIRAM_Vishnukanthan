@@ -1,0 +1,11 @@
+<div class="card">
+  <h2 class="card-title">{{voyage.destination}}</h2>
+  <p class="card-description">{{voyage.description | slice:0:20}}...</p>
+  <p class="card-price">
+    {{ voyage.price  }}€
+  </p>
+  <div class="card-actions">
+    <a class="btn-view" [routerLink]="['/home/voyage', voyage.id]">Details</a>
+    <button class="btn-delete" (click)="deleteVoyage()">Supprimer</button>
+  </div>
+</div>

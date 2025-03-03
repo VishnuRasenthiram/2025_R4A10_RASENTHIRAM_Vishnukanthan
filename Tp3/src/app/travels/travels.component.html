@@ -1,0 +1,8 @@
+<ul class="card-list">
+  @for (voyage of voyages; track voyage.id) {
+    <li>
+      <app-travel [voyage]="voyage" (deleteVoyageEvent)="deleteVoyage($event)"></app-travel>
+    </li>
+  }
+</ul>
+

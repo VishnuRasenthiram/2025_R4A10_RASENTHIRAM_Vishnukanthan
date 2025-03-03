@@ -1,0 +1,10 @@
+<nav>
+  <ul>
+    <li>
+      <a [routerLink]="['/home']" [class.active]="isActive('/home')">Voyages</a>
+    </li>
+    <li>
+      <a [routerLink]="['/home/generate']" [class.active]="isActive('/home/generate')">Générer un voyage</a>
+    </li>
+  </ul>
+</nav>

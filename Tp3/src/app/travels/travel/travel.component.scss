@@ -1,0 +1,91 @@
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 3px;
+  height: 60px;
+
+}
+
+.card-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #505050;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+
+.btn-view,
+.btn-delete {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  font-size: 1rem;
+}
+
+.btn-view {
+  background-color: #454546;
+  color: #fff;
+}
+
+.btn-view:hover {
+  background-color: #696969;
+}
+
+.btn-delete {
+  background-color: #9c0c02;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background-color: #ac0404;
+
+}
+
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style-type: none;
+  padding: 0;
+}
+
+.card-list li {
+  margin: 10px;
+}

@@ -1,0 +1,10 @@
+<div class="generated-voyage">
+  <h3>{{ generateVoyage.destination }}</h3>
+  <p>{{generateVoyage.description}}</p>
+  <p class="price">{{generateVoyage.price}}€</p>
+  <div class="btn-group">
+    <button class="btn-regenerate" (click)="generateNewVoyage()">Nouveau</button>
+    <button class="btn-save" (click)="saveVoyage()">Sauvegarder</button>
+  </div>
+</div>
+
